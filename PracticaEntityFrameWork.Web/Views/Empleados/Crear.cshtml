@@ -12,13 +12,16 @@
 
     <label for="IdDepartamento">Departamento:</label>
     <select id="departamento" name="IdDepartamento">
-        <option selected="selected" value="0">Seleccione Departamento</option>
+        @if(Model.IdDepartamento == 0)
+        {
+            <option selected="selected" value="0">Seleccione Departamento</option>
+        }
         @foreach (Departamento departamento in ViewBag.Departamentos)
         {
-            if(Model.IdDepartamento != 0)
+            if(Model.IdDepartamento != 0 && Model.IdDepartamento == departamento.Id) 
             {
                 <option value="@departamento.Id" selected="selected">@departamento.Descripcion</option>
-            }
+            }else
             {
                 <option value="@departamento.Id">@departamento.Descripcion</option>
             }

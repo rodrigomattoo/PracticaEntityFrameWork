@@ -8,7 +8,7 @@ namespace PracticaEntityFrameWork.Data.Entidades
         public string Nombre { get; set; }
         [Required(ErrorMessage = "Debe Ingresar un Apellido")]
         public string Apellido { get; set; }
-        [Required(ErrorMessage = "Debe seleccionar un Departamento")]
+        [Range(1, int.MaxValue, ErrorMessage = "Debe seleccionar un Departamento")]
         public int IdDepartamento { get; set; }
     }
 }

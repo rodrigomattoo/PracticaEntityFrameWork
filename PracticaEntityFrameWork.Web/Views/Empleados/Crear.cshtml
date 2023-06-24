@@ -10,18 +10,22 @@
     <input type="text" id="apellido" name="Apellido" value="@Model.Apellido">
     <span asp-validation-for="Apellido" class="text-danger"></span>
 
-    <label for="departamento">Departamento:</label>
+    <label for="IdDepartamento">Departamento:</label>
     <select id="departamento" name="IdDepartamento">
-        <option selected="selected">Seleccione Departamento</option>
+        <option selected="selected" value="0">Seleccione Departamento</option>
         @foreach (Departamento departamento in ViewBag.Departamentos)
         {
-            
+            if(Model.IdDepartamento != 0)
+            {
+                <option value="@departamento.Id" selected="selected">@departamento.Descripcion</option>
+            }
             {
                 <option value="@departamento.Id">@departamento.Descripcion</option>
             }
 
         }
     </select>
+    <span asp-validation-for="IdDepartamento" class="text-danger"></span>
     <input type="submit" value="Crear">
 </form>
 

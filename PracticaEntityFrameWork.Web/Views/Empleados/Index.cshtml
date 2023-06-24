@@ -1,0 +1,26 @@
+﻿@using PracticaEntityFrameWork.Data.Entidades;
+@model IEnumerable<Empleado>;
+<div>
+    <a href="/Empleados/Crear"><h2>Crear</h2></a>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Departamento</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Empleado empleado in Model)
+        {
+            <tr>
+                <td>@empleado.Nombre</td>
+                <td>@empleado.Apellido</td>
+                <td>@empleado.IdDepartamentoNavigation.Descripcion</td>
+                <td><a href="/Empleados/Eliminar/@empleado.Id">Eliminar</a> - <a href="/Empleados/Modificar/@empleado.Id">Modificar</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

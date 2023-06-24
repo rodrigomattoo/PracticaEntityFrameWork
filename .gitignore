@@ -1,0 +1,43 @@
+# ASP.NET
+*.obj
+*.dll
+*.exe
+*.pdb
+*.user
+*.bak
+*.cache
+*.suo
+*.tmp
+*.log
+*.vs
+*.vssscc
+*.pubxml
+*.Publish.xml
+bin/
+obj/
+
+# Entity Framework
+*.edmx
+*.edmx.diagram
+Model.Designer.cs
+Model.Context.cs
+Model.tt/
+Migration/
+
+# Visual Studio files
+.vscode/
+*.sln
+*.suo
+*.userprefs
+*.csproj
+*.csproj.user
+*.config
+Web.config
+packages.config
+
+# Test files
+TestResults/
+[Tt]est[Rr]esult*/
+*.trx
+*.vsmdi
+*.testsettings

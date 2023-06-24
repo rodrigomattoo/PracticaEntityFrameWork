@@ -1,0 +1,26 @@
+﻿@using PracticaEntityFrameWork.Data.Entidades;
+@model PracticaEntityFrameWork.Data.Entidades.Empleado;
+<form asp-controller="Empleados" asp-action="Modificar" method="post">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" value="@Model.Nombre">
+
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido" name="apellido" value="@Model.Apellido">
+
+    <label for="departamento">Departamento:</label>
+    <select id="departamento" name="IdDepartamento">
+        @foreach (Departamento departamento in ViewBag.Departamentos)
+        {
+            if(departamento.Id == Model.IdDepartamento)
+            {
+                <option selected='selected' value="@departamento.Id">@departamento.Descripcion</option>
+            }
+            else
+            {
+                <option value="@departamento.Id">@departamento.Descripcion</option>
+            }
+
+        }
+    </select>
+    <input type="submit" value="Modificar">
+</form>

@@ -1,11 +1,14 @@
 ﻿@using PracticaEntityFrameWork.Data.Entidades;
 @model PracticaEntityFrameWork.Data.Entidades.Empleado;
+<partial name="_ValidationScriptsPartial" />
 <form asp-controller="Empleados" asp-action="Crear" method="post">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" value="@Model.Nombre">
+    <label for="Nombre">Nombre:</label>
+    <input type="text" id="nombre" name="Nombre" value="@Model.Nombre">
+    <span asp-validation-for="Nombre" class="text-danger"></span>
 
-    <label for="apellido">Apellido:</label>
-    <input type="text" id="apellido" name="apellido" value="@Model.Apellido">
+    <label for="Apellido">Apellido:</label>
+    <input type="text" id="apellido" name="Apellido" value="@Model.Apellido">
+    <span asp-validation-for="Apellido" class="text-danger"></span>
 
     <label for="departamento">Departamento:</label>
     <select id="departamento" name="IdDepartamento">
@@ -21,3 +24,4 @@
     </select>
     <input type="submit" value="Crear">
 </form>
+

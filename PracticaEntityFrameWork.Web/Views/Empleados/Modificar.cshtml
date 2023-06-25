@@ -1,11 +1,15 @@
 ﻿@using PracticaEntityFrameWork.Data.Entidades;
 @model PracticaEntityFrameWork.Data.Entidades.Empleado;
 <form asp-controller="Empleados" asp-action="Modificar" method="post">
+    <input type="hidden" name="IdDepartamentoNavigation.Id" value="@Model.IdDepartamentoNavigation.Id" />
+    <input type="hidden" name="IdDepartamentoNavigation.Descripcion" value="@Model.IdDepartamentoNavigation.Descripcion" />
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" value="@Model.Nombre">
+    <span asp-validation-for="Nombre" class="text-danger"></span>
 
     <label for="apellido">Apellido:</label>
     <input type="text" id="apellido" name="apellido" value="@Model.Apellido">
+    <span asp-validation-for="Apellido" class="text-danger"></span>
 
     <label for="departamento">Departamento:</label>
     <select id="departamento" name="IdDepartamento">

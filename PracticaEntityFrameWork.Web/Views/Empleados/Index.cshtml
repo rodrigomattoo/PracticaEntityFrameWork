@@ -3,6 +3,41 @@
 <div>
     <a href="/Empleados/Crear"><h2>Crear</h2></a>
 </div>
+<div>
+    <form asp-action="Filtrar" asp-controller="Empleados" method="post">
+        <div>
+            <label for="IdDepartamento">Departamento</label>
+            <select id="departamento" name="IdDepartamento">
+                @if (ViewBag.DepartamentoSeleccionado == null)
+                {
+                    <option selected="selected" value="0">Todos</option>
+                }
+                else
+                {
+                    <option value="0">Todos</option>
+                }
+                @foreach (Departamento departamento in ViewBag.Departamentos)
+                {
+                    @if (ViewBag.DepartamentoSeleccionado != null && ViewBag.DepartamentoSeleccionado == departamento.Id)
+                    {
+                        <option value="@departamento.Id" selected="selected">@departamento.Descripcion</option>
+                    }
+                    else
+                    {
+                        <option value="@departamento.Id">@departamento.Descripcion</option>
+                    }                    
+                }
+            </select>
+        </div>
+        <input type="submit" value="Filtrar"/>
+        @if(Model.Count() == 0)
+        {
+            <div class="alert alert-dark">
+                El Departamento no posee empleados
+            </div>
+        }
+    </form>
+</div>
 <table>
     <thead>
         <tr>

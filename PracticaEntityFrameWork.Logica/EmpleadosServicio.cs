@@ -15,6 +15,7 @@ public interface IEmpleadoServicio
     void Modificar(Empleado empleado);
     void Eliminar(int id);
     Empleado BuscarEmpleado(int id);
+    List<Empleado> BuscarEmpleadosPorDepartamento(int idDepartamento);
 }
 public class EmpleadosServicio : IEmpleadoServicio
 {
@@ -32,8 +33,14 @@ public class EmpleadosServicio : IEmpleadoServicio
 
     public Empleado BuscarEmpleado(int id)
     {
-        Empleado empleado = _context.Empleados.Find(id);
+        Empleado empleado = _context.Empleados.Include(e => e.IdDepartamentoNavigation).Where(e => e.Id == id).FirstOrDefault();
         return empleado;
+    }
+
+    public List<Empleado> BuscarEmpleadosPorDepartamento(int idDepartamento)
+    {
+        List < Empleado > empleados = idDepartamento != 0 ? _context.Empleados.Where(e => e.IdDepartamento == idDepartamento).ToList() : this.ObtenerTodos();
+        return empleados;  
     }
 
     public void Eliminar(int id)

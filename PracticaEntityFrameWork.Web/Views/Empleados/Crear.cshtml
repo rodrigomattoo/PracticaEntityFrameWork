@@ -16,6 +16,10 @@
         {
             <option selected="selected" value="0">Seleccione Departamento</option>
         }
+        else
+        {
+            <option value="0">Seleccione Departamento</option>
+        }
         @foreach (Departamento departamento in ViewBag.Departamentos)
         {
             if(Model.IdDepartamento != 0 && Model.IdDepartamento == departamento.Id) 

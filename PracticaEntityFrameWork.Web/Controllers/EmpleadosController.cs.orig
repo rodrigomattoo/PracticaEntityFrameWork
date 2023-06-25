@@ -29,7 +29,8 @@ namespace PracticaEntityFrameWork.Web.Controllers
         public IActionResult Modificar(int id)
         {
             ViewBag.Departamentos = _departamentoServicio.ObtenerTodos();
-            return View(_empleadoServicio.BuscarEmpleado(id));
+            Empleado empleado = _empleadoServicio.BuscarEmpleado(id);
+            return View(empleado);
         }
         [HttpPost]
         public IActionResult Modificar(Empleado empleado)
